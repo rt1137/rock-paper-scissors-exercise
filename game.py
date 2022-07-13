@@ -1,10 +1,10 @@
-
+import random
 def getUserInput():
-    val = raw_input("Please choose either 'rock', 'paper', or 'scissors': ")
+    val = input("Please choose either 'rock', 'paper', or 'scissors': ")
     return val
 
 
-def validate_input (input):
+def validate_input(input):
    arr = ["rock", "paper", "scissors"]
    
    if input == "rock":
@@ -28,42 +28,43 @@ def validate_input (input):
    else:
      quit("Invalid Input!! Please try again")
 
-def computerChoice():
-    arr= ["rock", "paper", "scissor"]
-
+def computerChoice(PlayerOne):
+    arr= ["rock", "paper", "scissors"]
+    computerChoice=random.choice(arr)
+    print("The computer chose: " + computerChoice)
 
 # Tie scenarios 
 
-    if validate_input == "rock" and computerChoice == "rock": 
+    if PlayerOne == "rock" and computerChoice == "rock": 
          print("It's a tie!")
-    elif validate_input == "paper" and computerChoice == "paper":
+    elif PlayerOne == "paper" and computerChoice == "paper":
          print("It's a tie!")
-    elif validate_input == "scissors" and computerChoice == "scissors":
+    elif PlayerOne == "scissors" and computerChoice == "scissors":
          print("It's a tie!")
 
 # Player One wins scenarios
 
-    elif validate_input == "rock" and computerChoice == "scissors":
+    elif PlayerOne == "rock" and computerChoice == "scissors":
         print("Rock crushes scissors. Player one wins!")
-    elif validate_input == "paper" and computerChoice == "rock":
+    elif PlayerOne == "paper" and computerChoice == "rock":
         print("Paper covers Rock. Player One wins!")
-    elif validate_input == "scissors" and computerChoice == "paper":
+    elif PlayerOne == "scissors" and computerChoice == "paper":
         print(" Scissor cuts paper. Player One wins!")
 
 
 # Computer wins scenarios
 
-    elif validate_input == "rock" and computerChoice == "paper":
+    elif PlayerOne == "rock" and computerChoice == "paper":
         print("Paper covers rock. Computer wins!")
-    elif validate_input == "paper" and computerChoice == "scissors":
+    elif PlayerOne == "paper" and computerChoice == "scissors":
         print("Scissors cuts paper. Computer wins!")
-    elif validate_input == "scissors" and computerChoice == "rock":
+    elif PlayerOne == "scissors" and computerChoice == "rock":
         print(" Rock crushes scissors. Computer wins!")
 
 
 
 
-def main ():
+def main():
 
     print("---------------------")
     print("Welcome 'Player One'")
@@ -71,6 +72,10 @@ def main ():
 
     val = getUserInput()
     validate_input(val)
+    computerChoice(val)
+    print("---------------------")
+    print("Thanks for playing. Please play again!")
+    print("---------------------")
 
 
 if __name__ == "__main__":
